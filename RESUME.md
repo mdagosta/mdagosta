@@ -1,4 +1,0 @@
-mdagosta
-========
-
-Resume
