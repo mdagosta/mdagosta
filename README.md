@@ -1,4 +1,3 @@
-mdagosta
-========
+## Michael D'Agosta
 
-Home Directory
+### Personal Home Page & Home Directory
