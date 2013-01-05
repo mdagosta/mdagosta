@@ -2,6 +2,6 @@
 
 ### Personal Home Page & Home Directory
 
-The source for my personal home page and home directory files. Repository is structured as a home directory with dotfiles and other sources.
+The source for my home directory dotfiles and personal home page.
 
 My personal home page is http://dagosta.com
