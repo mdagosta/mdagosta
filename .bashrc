@@ -5,9 +5,9 @@ export PS1='\u@\h:\w> '
 export TERM="xterm"
 export LANG="en_US"
 export LC_ALL="C"
-export HOME="/home/mdagosta"
+export HOME="/home/$USER"
 export EDITOR="emacs -nw"
-export PYTHONPATH="/home/mdagosta/src"
+export PYTHONPATH="$HOME/src"
 export PYTHONDONTWRITEBYTECODE=1
 
 
