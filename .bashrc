@@ -30,10 +30,6 @@ if [[ -x $(which keychain) && -z $SUDO_USER ]]; then
 fi
 
 
-# Set up terminal coloring
-xrdb -merge $HOME/.Xresources
-
-
 # Aliases
 alias ls='ls -F'
 alias la='ls -a'
