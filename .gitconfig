@@ -1,0 +1,9 @@
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[core]
+    excludesfile = /home/mdagosta/.gitexclude
+[user]
+    name = Michael D'Agosta
+    email = mdagosta@codebug.com
