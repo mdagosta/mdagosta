@@ -9,7 +9,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (add-to-list 'load-path "/usr/share/emacs23/site-lisp/muse-el")
-;(require 'muse-mode)     ; load authoring mode
+(require 'muse-mode)     ; load authoring mode
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
@@ -84,7 +84,7 @@
 
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-xemacs)
+;;(color-theme-xemacs)
 
 ;; Software Development Environment
 (add-hook 'python-mode-hook 'turn-on-font-lock)
