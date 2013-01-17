@@ -70,7 +70,7 @@
 
 
 (set-background-color "#CECECE")
-(set-default-font "Courier-10")
+(set-default-font "Courier-12")
 
 ;; http://raebear.net/comp/emacscolors.html
 (set-face-foreground 'font-lock-comment-face "dark blue")            ;; #00008b
