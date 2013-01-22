@@ -18,12 +18,6 @@ done
 export PATH=$PATH
 
 
-# Link .bash_profile
-if [[ ! -L ~/.bash_profile && -z $SUDO_USER ]]; then
-  ln -s ~/.bashrc ~/.bash_profile
-fi
-
-
 # Run keychain if installed
 if [[ -x $(which keychain) && -z $SUDO_USER ]]; then
   eval $(keychain --eval id_rsa)
@@ -51,7 +45,7 @@ alias gits='git status'
 alias gitc='git commit -a -m '
 alias gitup='git pull && git push'
 
-alias apt-init='sudo apt-get update && sudo apt-get upgrade && sudo apt-get install xmonad emacs emacs-goodies-el mysql-server python-dev python-django-debug-toolbar ack-grep tig aterm apache2 php5 php5-cli php5-mysql php5-curl libxss1 muse-el keychain python-mode git nginx python-pip python-setuptools libmysqlclient-dev python-reportlab python-reportlab-accel python-renderpm && sudo apt-get clean' 
+alias apt-init='sudo apt-get update && sudo apt-get upgrade && sudo apt-get install xmonad emacs emacs-goodies-el mysql-server python-dev python-django-debug-toolbar ack-grep tig aterm apache2 php5 php5-cli php5-mysql php5-curl libxss1 muse-el keychain python-mode git nginx python-pip python-setuptools libmysqlclient-dev python-reportlab python-reportlab-accel python-renderpm && sudo apt-get clean'
 
 
 # Load host-specific environment
