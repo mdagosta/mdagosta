@@ -18,12 +18,6 @@ done
 export PATH=$PATH
 
 
-# Link .bash_profile
-if [ ! -L ~/.bash_profile ]; then
-  ln -s ~/.bashrc ~/.bash_profile
-fi
-
-
 # Run keychain if installed
 if [[ -x $(which keychain) && -z $SUDO_USER ]]; then
   eval $(keychain --eval id_rsa)

@@ -1,0 +1,33 @@
+# X/XMonad/GNOME
+.ICEauthority
+.Private
+.Xauthority
+.xsession-errors*
+.bash*
+!.bashrc
+!.bash_profile
+.cache
+.config
+.dbus
+.ecryptfs
+.emacs.d
+.fontconfig
+.gconf
+.gnome2/
+.goutputstream-*
+.gtk-bookmarks
+.keychain/
+.local/
+.macromedia/
+.mission-control/
+.mozilla/
+.mysql_history
+.pki/
+.profile
+.pulse*
+.ssh
+.vboxclient-*
+.xmonad/*
+!.xmonad/xmonad.hs
+# HOME DIRECTORY
+src/*
