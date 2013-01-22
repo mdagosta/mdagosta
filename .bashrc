@@ -19,7 +19,7 @@ export PATH=$PATH
 
 
 # Link .bash_profile
-if [ ! -L ~/.bash_profile ]; then
+if [[ (-z "$SUDO_USER") &&  (! -L ~/.bash_profile) ]]; then
   ln -s ~/.bashrc ~/.bash_profile
 fi
 
