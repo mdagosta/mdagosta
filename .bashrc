@@ -1,12 +1,16 @@
 # Bash Environment
 # Copyright 2013 Michael D'Agosta <mdagosta@codebug.com>
 
-. .bash_completion_git
+if [[ -n $SUDO_USER ]]; then
+  export HOME="/home/$SUDO_USER"
+else
+  export HOME="/home/$USER"
+fi
+. $HOME/.bash_completion_git
 export PS1='$(__git_ps1 "(%s) ")\u@\h:\w> '
 export TERM="xterm"
 export LANG="en_US.UTF-8"
 #export LC_ALL="C"
-export HOME="/home/$USER"
 export EDITOR="emacs -nw"
 export PYTHONPATH="$HOME/src"
 export PYTHONDONTWRITEBYTECODE=1
