@@ -6,6 +6,7 @@
 .bash*
 !.bashrc
 !.bash_profile
+!.bash_completion_git
 .cache
 .config
 .dbus
@@ -30,5 +31,7 @@
 .xmonad/*
 !.xmonad/xmonad.hs
 # HOME DIRECTORY
+archive/*
 src/*
+tmp/*
 *~
