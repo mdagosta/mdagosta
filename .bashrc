@@ -2,7 +2,9 @@
 # Copyright 2013 Michael D'Agosta <mdagosta@codebug.com>
 
 if [[ -n $SUDO_USER ]]; then
-  export HOME="/home/$SUDO_USER"
+  export HOME="/home/$SUDO_USER";
+elif [[ -n $(uname -a |grep Darwin) ]]; then
+  export HOME="/Users/$USER"
 else
   export HOME="/home/$USER"
 fi
@@ -36,6 +38,7 @@ alias pp='popd'
 alias dk='du -sk * |sort -n'
 alias e='emacs -nw'
 alias va='. virtualenv/bin/activate'
+alias mirror='rsync -azvP --stats "$1" "$2"'
 
 alias gitu='git pull'
 alias gitd='git diff --color'
