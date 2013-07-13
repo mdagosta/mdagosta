@@ -13,7 +13,8 @@ import XMonad.Actions.UpdatePointer
 
 main = xmonad $ defaultConfig {
   borderWidth        = 2,
-  terminal           = "aterm +sb -sl 50000",
+  --terminal           = "aterm +sb -sl 50000",
+  terminal           = "urxvt -sr -sl 80000",
   normalBorderColor  = "#cccccc",
   focusedBorderColor = "#cd8b00",
   focusFollowsMouse = True,
