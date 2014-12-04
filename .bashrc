@@ -49,7 +49,7 @@ alias gitc='git commit -a -m '
 alias gitup='git pull && git push'
 
 alias apt-init='sudo apt-get update && sudo apt-get upgrade && sudo apt-get install xmonad emacs emacs-goodies-el mysql-server python-dev python-django-debug-toolbar ack-grep tig curl nmap aterm apache2 php5 php5-cli php5-mysql php5-curl libxss1 muse-el keychain python-mode git nginx python-pip python-setuptools libmysqlclient-dev python-reportlab python-reportlab-accel python-renderpm rxvt-unicode && sudo apt-get clean'
-alias apt-init-nox='sudo apt-get update && sudo apt-get upgrade && sudo apt-get install emacs emacs-goodies-el mysql-server python-dev python-django-debug-toolbar ack-grep tig curl nmap apache2 php5 php5-cli php5-mysql php5-curl libxss1 muse-el keychain python-mode git nginx python-pip python-setuptools libmysqlclient-dev python-reportlab python-reportlab-accel python-renderpm && sudo apt-get clean'
+alias apt-init-nox='sudo apt-get update && sudo apt-get upgrade && sudo apt-get install emacs emacs-goodies-el mysql-server python-dev python-django-debug-toolbar ack-grep tig curl nmap apache2 php5 php5-cli php5-mysql php5-curl libxss1 muse-el python-mode git nginx python-pip python-setuptools libmysqlclient-dev python-reportlab python-reportlab-accel python-renderpm && sudo apt-get clean'
 alias apt-init-lite='sudo apt-get update && sudo apt-get upgrade && sudo apt-get install emacs emacs-goodies-el python-dev ack-grep tig curl nmap libxss1 muse-el keychain python-mode git python-pip python-setuptools libmysqlclient-dev && sudo apt-get clean' 
 # Prevent IPs from dropping on some networks, and don't use NetworkManager
 alias apt-clean='sudo apt-get remove resolvconf; sudo apt-get purge network-manager; sudo apt-get clean'
