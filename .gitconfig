@@ -7,3 +7,5 @@
 [user]
     name = Michael D'Agosta
     email = mdagosta@codebug.com
+[push]
+	default = simple
