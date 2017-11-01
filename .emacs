@@ -54,18 +54,18 @@
 
 ;; Colors
 
-;; font-lock-comment-face   Used (typically) for comments. 
-;; font-lock-comment-delimiter-face   Used (typically) for comments delimiters. 
-;; font-lock-doc-face   Used (typically) for documentation strings in the code. 
-;; font-lock-string-face   Used (typically) for string constants. 
-;; font-lock-keyword-face   Used (typically) for keywords—names that have special syntactic significance, like for and if in C. 
-;; font-lock-builtin-face   Used (typically) for built-in function names. 
-;; font-lock-function-name-face   Used (typically) for the name of a function being defined or declared, in a function definition or declaration. 
-;; font-lock-variable-name-face   Used (typically) for the name of a variable being defined or declared, in a variable definition or declaration. 
-;; font-lock-type-face   Used (typically) for names of user-defined data types, where they are defined and where they are used. 
-;; font-lock-constant-face   Used (typically) for constant names. 
-;; font-lock-preprocessor-face   Used (typically) for preprocessor commands. 
-;; font-lock-negation-char-face   Used (typically) for easily-overlooked negation characters. 
+;; font-lock-comment-face   Used (typically) for comments.
+;; font-lock-comment-delimiter-face   Used (typically) for comments delimiters.
+;; font-lock-doc-face   Used (typically) for documentation strings in the code.
+;; font-lock-string-face   Used (typically) for string constants.
+;; font-lock-keyword-face   Used (typically) for keywords—names that have special syntactic significance, like for and if in C.
+;; font-lock-builtin-face   Used (typically) for built-in function names.
+;; font-lock-function-name-face   Used (typically) for the name of a function being defined or declared, in a function definition or declaration.
+;; font-lock-variable-name-face   Used (typically) for the name of a variable being defined or declared, in a variable definition or declaration.
+;; font-lock-type-face   Used (typically) for names of user-defined data types, where they are defined and where they are used.
+;; font-lock-constant-face   Used (typically) for constant names.
+;; font-lock-preprocessor-face   Used (typically) for preprocessor commands.
+;; font-lock-negation-char-face   Used (typically) for easily-overlooked negation characters.
 ;; font-lock-warning-face   Used (typically) for constructs that are peculiar, or that greatly change the meaning of other text. For example, this is used for ‘;;;###autoload’ cookies in Emacs Lisp, and for #error directives in C.
 
 
@@ -76,11 +76,11 @@
 (set-face-foreground 'font-lock-comment-face "dark blue")            ;; #00008b
 (set-face-foreground 'font-lock-string-face "forest green")          ;; #228b22
 (set-face-foreground 'font-lock-keyword-face "firebrick4")           ;; #8b1a1a
-(set-face-foreground 'font-lock-builtin-face "firebrick4")           
+(set-face-foreground 'font-lock-builtin-face "firebrick4")
 (set-face-foreground 'font-lock-variable-name-face "Black")          ;; #000
 (set-face-foreground 'font-lock-function-name-face "MediumOrchid4")  ;; #7a378b
 (set-face-foreground 'font-lock-type-face "MediumOrchid4")
-;; LightGoldenrod2   #eedc82       
+;; LightGoldenrod2   #eedc82
 
 (require 'color-theme)
 (color-theme-initialize)
@@ -163,5 +163,5 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 (autoload 'javascript-mode "javascript" nil t)
 (load (concat (getenv "HOME") "/src/nxhtml/autostart.el"))
-(setq mumamo-background-colors nil) 
+(setq mumamo-background-colors nil)
 (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
