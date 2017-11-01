@@ -3,15 +3,16 @@
 (setq
     line-number-mode t
     column-number-mode t)
-(setq left-fringe-width )
+;(setq left-fringe-width )
 (load "font-lock")
 (setq font-lock-maximum-size nil)
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(add-to-list 'load-path "/usr/share/emacs23/site-lisp/muse-el")
-(require 'muse-mode)     ; load authoring mode
+;(add-to-list 'load-path "/usr/share/emacs23/site-lisp/muse-el")
+;(require 'muse-mode)     ; load authoring mode
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+(setq tramp-default-method "ssh")
 
 ;; Backup and auto-saves
 (setq backup-inhibited t)
@@ -20,11 +21,14 @@
 ;; Modes
 (add-to-list 'auto-mode-alist '("\\.java\\'" . java-mode) t)
 (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . xml-mode) t)
-(add-to-list 'auto-mode-alist '("\\.tpl\\'" . xml-mode) t)
+(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode) t)
 (autoload 'ruby-mode "ruby-mode" "Load ruby-mode")
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
-(autoload 'python-mode "python-mode.elc" "Major mode for editing Python source." t)
-
+(add-to-list 'load-path "~/.emacs.d/python-mode")
+(require 'python-mode)
+(add-to-list 'load-path "~/.emacs.d/web-mode")
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
 ;; Terminal and Keybinding Portability
 (defun xterm-cfg ()
@@ -70,7 +74,7 @@
 
 
 (set-background-color "#CECECE")
-(set-default-font "Courier-11")
+;(set-default-font "Courier-13")
 
 ;; http://raebear.net/comp/emacscolors.html
 (set-face-foreground 'font-lock-comment-face "dark blue")            ;; #00008b
@@ -82,8 +86,8 @@
 (set-face-foreground 'font-lock-type-face "MediumOrchid4")
 ;; LightGoldenrod2   #eedc82       
 
-(require 'color-theme)
-(color-theme-initialize)
+;(require 'color-theme)
+;(color-theme-initialize)
 ;;(color-theme-xemacs)
 
 ;; Software Development Environment
@@ -162,6 +166,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 (autoload 'javascript-mode "javascript" nil t)
-(load (concat (getenv "HOME") "/src/nxhtml/autostart.el"))
-(setq mumamo-background-colors nil) 
-(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
+;(load (concat (getenv "HOME") "/src/nxhtml/autostart.el"))
+;(setq mumamo-background-colors nil) 
+;(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
