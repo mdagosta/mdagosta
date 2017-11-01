@@ -38,7 +38,6 @@ alias pp='popd'
 alias dk='du -sk * |sort -n'
 alias e='emacs -nw'
 alias va='. virtualenv/bin/activate'
-alias mirror='rsync -azvP --stats "$1" "$2"'
 
 alias gitu='git pull'
 alias gitd='git diff --color'
