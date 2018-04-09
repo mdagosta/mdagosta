@@ -1,34 +1,65 @@
+;; Basic UI
 (menu-bar-mode 0)
 (tool-bar-mode 0)
-(setq
-    line-number-mode t
-    column-number-mode t)
-;(setq left-fringe-width )
+(setq line-number-mode t
+      column-number-mode t)
 (load "font-lock")
 (setq font-lock-maximum-size nil)
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;(add-to-list 'load-path "/usr/share/emacs23/site-lisp/muse-el")
-;(require 'muse-mode)     ; load authoring mode
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
-(setq tramp-default-method "ssh")
 
 ;; Backup and auto-saves
 (setq backup-inhibited t)
 (auto-save-mode nil)
 
 ;; Modes
+(add-to-list 'load-path "~/.emacs.d/python-mode")
+(add-to-list 'load-path "~/.emacs.d/web-mode")
+(require 'python-mode)
+(require 'web-mode)
+(autoload 'ruby-mode "ruby-mode" "Load ruby-mode")
 (add-to-list 'auto-mode-alist '("\\.java\\'" . java-mode) t)
 (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . xml-mode) t)
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode) t)
-(autoload 'ruby-mode "ruby-mode" "Load ruby-mode")
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
-(add-to-list 'load-path "~/.emacs.d/python-mode")
-(require 'python-mode)
-(add-to-list 'load-path "~/.emacs.d/web-mode")
-(require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+
+
+;; Remote Editing with Ibuffer && Tramp
+(setq tramp-default-method "ssh")
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(autoload 'ibuffer "ibuffer" "List buffers." t)
+
+(add-to-list 'load-path "~/.emacs.d/ibuffer-tramp")
+(require 'ibuffer-tramp)
+(add-hook 'ibuffer-hook
+  (lambda ()
+    (ibuffer-tramp-set-filter-groups-by-tramp-connection)
+    (ibuffer-do-sort-by-alphabetic)))
+
+;; IBuffer: Use human readable Size column instead of original one
+(define-ibuffer-column size-h
+  (:name "Size" :inline t)
+  (cond
+   ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
+   ((> (buffer-size) 100000) (format "%7.0fk" (/ (buffer-size) 1000.0)))
+   ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
+   (t (format "%8d" (buffer-size)))))
+
+;; IBuffer: Modify the default ibuffer-formats
+  (setq ibuffer-formats
+	'((mark modified read-only " "
+		(name 18 18 :left :elide)
+		" "
+		(size-h 9 -1 :right)
+		" "
+		(mode 16 16 :left :elide)
+		" "
+		filename-and-process)))
+
 
 ;; Terminal and Keybinding Portability
 (defun xterm-cfg ()
@@ -56,22 +87,6 @@
     (dispatch-termtype "x-windows")
   (dispatch-termtype (getenv "TERM")))
 
-;; Colors
-
-;; font-lock-comment-face   Used (typically) for comments.
-;; font-lock-comment-delimiter-face   Used (typically) for comments delimiters.
-;; font-lock-doc-face   Used (typically) for documentation strings in the code.
-;; font-lock-string-face   Used (typically) for string constants.
-;; font-lock-keyword-face   Used (typically) for keywords—names that have special syntactic significance, like for and if in C.
-;; font-lock-builtin-face   Used (typically) for built-in function names.
-;; font-lock-function-name-face   Used (typically) for the name of a function being defined or declared, in a function definition or declaration.
-;; font-lock-variable-name-face   Used (typically) for the name of a variable being defined or declared, in a variable definition or declaration.
-;; font-lock-type-face   Used (typically) for names of user-defined data types, where they are defined and where they are used.
-;; font-lock-constant-face   Used (typically) for constant names.
-;; font-lock-preprocessor-face   Used (typically) for preprocessor commands.
-;; font-lock-negation-char-face   Used (typically) for easily-overlooked negation characters.
-;; font-lock-warning-face   Used (typically) for constructs that are peculiar, or that greatly change the meaning of other text. For example, this is used for ‘;;;###autoload’ cookies in Emacs Lisp, and for #error directives in C.
-
 
 (set-background-color "#CECECE")
 ;(set-default-font "Courier-13")
@@ -86,20 +101,16 @@
 (set-face-foreground 'font-lock-type-face "MediumOrchid4")
 ;; LightGoldenrod2   #eedc82
 
-;(require 'color-theme)
-;(color-theme-initialize)
-;;(color-theme-xemacs)
-
 ;; Software Development Environment
 (add-hook 'python-mode-hook 'turn-on-font-lock)
 (add-hook 'ruby-mode-hook 'turn-on-font-lock)
 (add-hook 'c-mode-hook 'turn-on-font-lock)
 (add-hook 'c++-mode-hook 'turn-on-font-lock)
 (add-hook 'perl-mode-hook 'turn-on-font-lock)
-(add-hook 'tex-mode-hook 'turn-on-font-lock)
-(add-hook 'latex-mode-hook 'turn-on-font-lock)
-(add-hook 'texinfo-mode-hook 'turn-on-font-lock)
-(add-hook 'sql-mode-hook 'turn-on-font-lock)
+;(add-hook 'tex-mode-hook 'turn-on-font-lock)
+;(add-hook 'latex-mode-hook 'turn-on-font-lock)
+;(add-hook 'texinfo-mode-hook 'turn-on-font-lock)
+;(add-hook 'sql-mode-hook 'turn-on-font-lock)
 (add-hook 'xml-mode-hook 'turn-on-font-lock)
 (add-hook 'html-mode-hook 'turn-on-font-lock)
 (add-hook 'java-mode-hook 'turn-on-font-lock)
@@ -156,8 +167,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default buffer-file-coding-system 'undecided-unix)
 (add-hook 'find-file-hook 'uncr-buffer)
-;(add-hook 'write-file-hooks 'whitespace-cleanup)
-;(remove-hook 'write-file-hooks 'whitespace-cleanup)
 
 
 (setq completion-ignored-extensions
@@ -166,6 +175,3 @@
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 (autoload 'javascript-mode "javascript" nil t)
-;(load (concat (getenv "HOME") "/src/nxhtml/autostart.el"))
-;(setq mumamo-background-colors nil) 
-;(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
