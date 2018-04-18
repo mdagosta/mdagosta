@@ -25,6 +25,7 @@
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode) t)
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 
 
 ;; Remote Editing with Ibuffer && Tramp
